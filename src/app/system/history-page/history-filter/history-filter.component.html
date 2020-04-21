@@ -1,0 +1,80 @@
+<div class="modal fade in" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" id="modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Фильтр</h4>
+				<button 
+                    type="button" 
+				    class="close"
+				    data-dismiss="modal"
+				    (click)="closeFilter()">
+				    <span>x</span>    	
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label 
+					    for="period" 
+					    class="control-label">Выберите период
+					</label>
+					<select 
+					    id="period" 
+					    class="form-control"
+					    [(ngModel)]="selectedPeriod">
+					    	<option 
+					    	    *ngFor="let p of timePeriods"
+					    	    [value]="p.type">
+					    	        {{p.label}}
+					    	</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="control-label">
+						Выберите тип события
+					</label>
+					<div>
+						<label *ngFor="let t of types">
+						    <input 
+						        type="checkbox"
+						        class="checkbox"
+						        [value]="t.type"
+						        (change)="handleChangeType($event.target)">
+						        <span> {{t.label}} </span>
+					    </label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">
+						Выберите категории
+					</label>
+					<div>
+						<label *ngFor="let c of categories">
+							<input 
+                                class="checkbox"
+							    type="checkbox"
+							    [value]="c.id"
+							    (change)="handleChangeCategory($event.target)">
+							    <span> {{c.name}} </span>
+					    </label>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button 
+					    type="button" 
+					    class="btn btn-secondary"
+					    data-dismiss="modal"
+					    (click)="closeFilter()">
+					    Отмена
+				    </button>
+					<button 
+					    type="button" 
+					    class="btn btn-info"
+					    data-dismiss="modal"
+					    (click)="applyFilter()">
+					    Применить
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

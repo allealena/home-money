@@ -1,0 +1,34 @@
+<header class="header">
+	<div class="header-block header-block-search">
+	{{ date | date: 'dd:MM:yyyy'}}
+	</div>
+	<div class="header-block header-block-nav">
+		<ul class="nav-profile">
+			<li class="profile dropdown" wfmDropdown>
+				<a  
+					class="nav-link dropdown-toggle"
+					role="button"
+					data-toggle="dropdown">
+						<span class="name">
+						   	Здравствуйте, {{user.name}}
+						</span>
+				</a>
+				<div class="dropdown-menu profile-dropdown-menu">
+					<a 
+					    [routerLink]="['/system', 'records']" 
+						class="dropdown-item">
+						<i class="fa fa-gear icon"></i>
+						Сделать запись
+				    </a>
+				    <div class="dropdown-divider"></div>
+				    <a 
+				        (click)="onLogout()" 
+						class="dropdown-item">
+						<i class="fa fa-power-off icon"></i>
+						Выйти
+					</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</header>

@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "wfm@gmail.com",
+      "password": "12345678",
+      "name": "Администратор"
+    }
+  ],
+  "bill": {
+    "value": 19750,
+    "currency": "UAH"
+  },
+  "categories": [
+    {
+      "name": "Дом",
+      "capacity": 1500,
+      "id": 1
+    },
+    {
+      "name": "Еда",
+      "capacity": 2000,
+      "id": 2
+    },
+    {
+      "name": "Машина",
+      "capacity": 6000,
+      "id": 3
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "type": "income",
+      "amount": 250,
+      "category": 2,
+      "date": "12.01.2020 19:41:00",
+      "description": "Подарили еду в гостях"
+    },
+    {
+      "id": 2,
+      "type": "outcome",
+      "amount": 1300,
+      "category": 1,
+      "date": "15.01.2020 11:31:06",
+      "description": "Покупка посудомоечной машины"
+    },
+    {
+      "id": 3,
+      "type": "income",
+      "amount": 480,
+      "category": 2,
+      "date": "21.01.2020 18:28:32",
+      "description": "Посещение ресторана"
+    },
+    {
+      "id": 4,
+      "type": "outcome",
+      "amount": 1250,
+      "category": 2,
+      "date": "22.01.2020 16:21:10",
+      "description": "Закупка на неделю"
+    },
+    {
+      "id": 5,
+      "type": "outcome",
+      "amount": 2000,
+      "category": 3,
+      "date": "24.01.2020 14:22:16",
+      "description": "Заправка + ТО"
+    },
+    {
+      "type": "income",
+      "amount": 198,
+      "category": 1,
+      "date": "01.02.2020 21:38:36",
+      "description": "test",
+      "id": 11
+    },
+    {
+      "type": "outcome",
+      "amount": 250,
+      "category": 1,
+      "date": "02.02.2020 16:29:32",
+      "description": "test",
+      "id": 12
+    }
+  ]
+}
