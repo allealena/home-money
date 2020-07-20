@@ -1,5 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { form } from '@angular/forms';
+import { Component, Output, OnDestroy, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
 import  { CategoriesService } from '../../shared/services/categories.service'
@@ -15,7 +15,7 @@ export class AddCategoryComponent implements OnDestroy {
 
 	@Output() onCategoryAdd = new EventEmitter<Category>();
 
-    sub1: Subscription;
+    sub1: Subscription; 
 
     constructor(private categoriesService: CategoriesService) { }
 

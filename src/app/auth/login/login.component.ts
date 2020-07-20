@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
     constructor (
         private usersService: UsersService,
-        private  authService: AuthService,
+        private authService: AuthService,
         private router: Router,
         private route: ActivatedRoute,
         private title: Title,
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
   		    'email': new FormControl(null, [Validators.required, Validators.email]),
   		    'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
   	});
-  }
+  } 
 
     private showMessage(message: Message) {
     	this.message = message;

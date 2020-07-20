@@ -9,7 +9,7 @@ export class BaseApi {
 
 	constructor(public http: HttpClient) {}
 
-	private getUrl(url: string = '') {
+	private getUrl(url: string = ''): string {
 		return this.baseUrl + url;
 	}
 
@@ -24,4 +24,4 @@ export class BaseApi {
 	public put(url: string = '', data: any = {}): Observable<any> {
         return this.http.put(this.getUrl(url), data);
 	}
-}
+} 

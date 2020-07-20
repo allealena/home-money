@@ -14,7 +14,7 @@
 							    [placeholder]="searchPlaceholder"
 							    [(ngModel)]="searchValue">
 						</div> 
-						<div class="btn-group" wfmDropdown> 
+						<div class="btn-group"> 
 							<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
 								Параметр
 							</button>
@@ -30,7 +30,14 @@
 				<div class="card-block">
 					<table class="table table-striped">
 						<thead>
-							
+							<tr>
+								<th>#</th>
+								<th>Сумма</th>
+								<th>Дата</th>
+								<th>Категория</th>
+								<th>Тип</th>
+								<th>Действие</th>
+							</tr>
 						</thead>
 						<tbody>
 						    <tr *ngFor="let e of events | wfmFilter:searchValue:searchField; let idx = index">

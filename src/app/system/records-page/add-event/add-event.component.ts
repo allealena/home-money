@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { form } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import * as moment from 'moment';
 import { Observable } from 'rxjs';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription'; 
 
 import { mergeMap } from 'rxjs/operators';
 import { Category } from '../../shared/models/category.model';
@@ -45,7 +45,6 @@ export class AddEventComponent implements OnInit, OnDestroy {
 
     onSubmit (form: NgForm) {
         let {amount, description, category, type} = form.value;
-        console.log(form.value);
         if (amount < 0) { amount *= -1};
 
         const event = new WFMEvent(
@@ -53,32 +52,32 @@ export class AddEventComponent implements OnInit, OnDestroy {
         	moment().format('DD.MM.YYYY HH:mm:ss'), description
         );
     
-        this.sub1 = this.billService.getBill()
-                        .subscribe((bill: Bill) => {
-            	            let value = 0;
-                            if (type === 'outcome') {
-                                if (amount > bill.value) {
-                                    this.showMessage(`На счету недостаточно средств. Вам не хвататет  ${amount - bill.value} гривен`);
-                                    return;
-                                } else {
-                    	           value = bill.value - amount;
-                                }
-                            } else {
-                                value = bill.value + amount;
-                        }
+    this.sub1 = this.billService.getBill()
+        .subscribe((bill: Bill) => {
+            let value = 0;
+            if (type === 'outcome') {
+                if (amount > bill.value) {
+                    this.showMessage(`На счету недостаточно средств. Вам не хвататет  ${amount - bill.value} гривен`);
+                    return;
+                } else {
+                    value = bill.value - amount;
+                }
+            } else {
+                value = bill.value + amount;
+            }
 
-                this.sub2 = this.billService.updateBill({value, currency: bill.currency})
-                                .pipe(
-                    	            mergeMap(() => this.eventsService.addEvent(event)) )
-                                .subscribe(() => {
-                    	            form.setValue({
-                    		            amount: 0,
-                    		            description: ' ',
-                    		            category: 1,
-                    		            type: 'outcome'
-                    	            });
-                                });
+        this.sub2 = this.billService.updateBill({value, currency: bill.currency})
+            .pipe(
+                mergeMap(() => this.eventsService.addEvent(event)) )
+                .subscribe(() => {
+                    form.setValue({
+                    amount: 0,
+                    description: ' ',
+                    category: 1,
+                    type: 'outcome'
                 });
+            });
+        });
     }
 
     ngOnDestroy() {

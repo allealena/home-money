@@ -5,6 +5,12 @@
       "email": "wfm@gmail.com",
       "password": "12345678",
       "name": "Администратор"
+    },
+    {
+      "email": null,
+      "password": null,
+      "name": null,
+      "id": 2
     }
   ],
   "bill": {
@@ -34,7 +40,7 @@
       "type": "income",
       "amount": 250,
       "category": 2,
-      "date": "12.01.2020 19:41:00",
+      "date": "12.05.2020 19:41:00",
       "description": "Подарили еду в гостях"
     },
     {
@@ -42,7 +48,7 @@
       "type": "outcome",
       "amount": 1300,
       "category": 1,
-      "date": "15.01.2020 11:31:06",
+      "date": "15.05.2020 11:31:06",
       "description": "Покупка посудомоечной машины"
     },
     {
@@ -50,7 +56,7 @@
       "type": "income",
       "amount": 480,
       "category": 2,
-      "date": "21.01.2020 18:28:32",
+      "date": "21.05.2020 18:28:32",
       "description": "Посещение ресторана"
     },
     {
@@ -58,7 +64,7 @@
       "type": "outcome",
       "amount": 1250,
       "category": 2,
-      "date": "22.01.2020 16:21:10",
+      "date": "22.05.2020 16:21:10",
       "description": "Закупка на неделю"
     },
     {
@@ -66,14 +72,14 @@
       "type": "outcome",
       "amount": 2000,
       "category": 3,
-      "date": "24.01.2020 14:22:16",
+      "date": "24.05.2020 14:22:16",
       "description": "Заправка + ТО"
     },
     {
       "type": "income",
       "amount": 198,
       "category": 1,
-      "date": "01.02.2020 21:38:36",
+      "date": "01.05.2020 21:38:36",
       "description": "test",
       "id": 11
     },
@@ -81,7 +87,7 @@
       "type": "outcome",
       "amount": 250,
       "category": 1,
-      "date": "02.02.2020 16:29:32",
+      "date": "02.05.2020 16:29:32",
       "description": "test",
       "id": 12
     }

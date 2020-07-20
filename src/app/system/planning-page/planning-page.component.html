@@ -4,7 +4,7 @@
 		<span class="sparkline bar"></span>
 	</h3>
 </div>
-<section 
+<section  
     class="section text-center"
     *ngIf="!isLoaded"><wfm-loader></wfm-loader></section>
 <section 
@@ -38,7 +38,7 @@
 						</div>
 						<div class="col-6">
 							<p>
-								<span class="text-{{getCatColorClass(c)}}">{{ getCategoryCost(c) }}</span>
+								<span class="text-{{getCatColorClass(c)}}">{{ getCategoryCost(c) | number: '1.2' }}</span>
 								из
 								<span class="text-{{getCatColorClass(c)}}">{{c.capacity | number: '1.2'}}</span>
 								осталось <span class="text-{{getCatColorClass(c)}}">{{c.capacity - getCategoryCost(c) | number: '1.2'}}</span> грн

@@ -5,8 +5,8 @@ import * as moment from 'moment';
 
 import { CategoriesService } from '../shared/services/categories.service';
 import { EventsService } from '../shared/services/events.service';
-import { Category } from '../../shared/models/category.model';
-import { WFMEvent } from '../../shared/models/event.model';
+import { Category } from '../shared/models/category.model';
+import { WFMEvent } from '../shared/models/event.model';
 
 @Component({
     selector: 'wfm-history-page',
@@ -43,7 +43,6 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
                         this.calculateChartData();
 
                         this.isLoaded = true;
-                        console.log(this.isLoaded);
   	              });
 
     }
@@ -64,7 +63,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
     	    		return total;
     	    	}, 0)
     	    });
-    	});    	console.log(this.chartData);
+    	});    
 
     }
 

@@ -1,14 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs/Subscription';
 import { combineLatest } from "rxjs/index";
 
 import { BillService } from '../shared/services/bill.service';
 import { CategoriesService } from '../shared/services/categories.service';
 import { EventsService } from '../shared/services/events.service';
-import { Category } from '../../shared/models/category.model';
-import { WFMEvent } from '../../shared/models/event.model';
-import { Bill } from '../../shared/models/bill.model';
+import { Category } from '../shared/models/category.model';
+import { WFMEvent } from '../shared/models/event.model';
+import { Bill } from '../shared/models/bill.model';
 
 @Component({
     selector: 'wfm-planning-page',
@@ -17,10 +16,10 @@ import { Bill } from '../../shared/models/bill.model';
 })
 export class PlanningPageComponent implements OnInit, OnDestroy {
 
-	isLoaded = false;
+	isLoaded = false; 
     s1: Subscription;
 
-	bill: Bill;
+	bill: Bill; 
 	categories: Category[] = [];
 	events: WFMEvent[] = [];
 
@@ -35,7 +34,7 @@ export class PlanningPageComponent implements OnInit, OnDestroy {
             this.billService.getBill(),
             this.categoriesService.getCategories(),
             this.eventsService.getEvents()
-    	).subscribe((data: [Bill, Category[], WFMEvents[]]) => {
+    	).subscribe((data: [Bill, Category[], WFMEvent[]]) => {
             this.bill = data[0];
             this.categories = data[1];
             this.events = data[2];
@@ -57,7 +56,7 @@ export class PlanningPageComponent implements OnInit, OnDestroy {
         return percent > 100 ? 100 : percent;
     }
 
-    getCatPercent(cat): string {
+    getCatPercent(cat: Category): string {
     	return this.getPercent(cat) + '%';
     }
 
@@ -66,10 +65,9 @@ export class PlanningPageComponent implements OnInit, OnDestroy {
     	return percent < 60 ? 'success' : percent >= 100 ? 'danger' : 'warning';
     }
 
-    ngDestroy() {
+    ngOnDestroy() {
     	if (this.s1) {
            this.s1.unsubscribe();
     	}
     }
-
 }

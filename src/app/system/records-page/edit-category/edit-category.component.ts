@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
-import { form } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
 import { Category } from '../../shared/models/category.model';
@@ -35,7 +35,7 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
             .find(c => c.id === +this.currentCategoryId);
     }
 
-    onSubmit (form: ngForm) {
+    onSubmit (form: NgForm) {
         let {capacity, name} = form.value;
         if (capacity < 0) {
             capacity *= -1 ;

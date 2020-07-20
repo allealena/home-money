@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { BaseApi } from '../../../shared/core/base-api';
-import { WFMEvent } from '../../shared/models/event.model';
+import { WFMEvent } from '../models/event.model';
 
 @Injectable()
 
@@ -17,7 +17,7 @@ export class EventsService extends BaseApi {
 		return this.post('events', event);
 	}
 
-	getEvents(): Observable<WFMEvent> {
+	getEvents(): Observable<WFMEvent[]> {
 		return this.get('events');
 	}
 
